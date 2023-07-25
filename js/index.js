@@ -62,18 +62,18 @@ function generateProductHTML(product) {
 }
 
 async function loadProducts() {
-    const productContainer = document.getElementById('product-container');
+    const productContainer = document.getElementById('product-container')
     try {
-      productsData = await fetchProducts();
+      productsData = await fetchProducts()
       productsData.forEach((productData) => {
-        const { title, price, id, image } = productData;
-        const product = new Product(title, price, id, image);
-        const productHTML = generateProductHTML(product);
-        productContainer.innerHTML += productHTML;
-      });
-      setupAddToCartButtons();
+        const { title, price, id, image } = productData
+        const product = new Product(title, price, id, image)
+        const productHTML = generateProductHTML(product)
+        productContainer.innerHTML += productHTML
+      })
+      setupAddToCartButtons()
     } catch (error) {
-      console.error('Error loading products:', error);
+      console.error('Error loading products:', error)
     }
 }
   
@@ -96,7 +96,7 @@ function setupAddToCartButtons() {
 }
 
 function saveCartToLocalStorage() {
-    localStorage.setItem('cart', JSON.stringify(cart.products));
+    localStorage.setItem('cart', JSON.stringify(cart.products))
 }
 
 function loadCartFromLocalStorage() {
